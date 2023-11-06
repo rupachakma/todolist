@@ -28,3 +28,4 @@ class TasklistForm(ModelForm):
     class Meta:
         model = Tasklist
         fields = ['title','status']
+       

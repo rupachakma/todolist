@@ -16,3 +16,8 @@ class Tasklist(models.Model):
 def __str__(self):
     return self.title
 
+class Profileimg(models.Model):
+    profilepic = models.ImageField(upload_to="img",blank=True,null=True)
+    user = models.OneToOneField(User,on_delete=models.CASCADE,null=True,blank=True)
+def __str__(self):
+    return str(self.user)

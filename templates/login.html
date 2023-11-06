@@ -6,6 +6,13 @@
             {% csrf_token %}
             <div class="col-5 shadow p-0 mx-auto">
                 <div class="alert alert-info text-center"><h3>Log in</h3></div>
+             
+                {% if messages %}
+                    {% for i in messages %}
+                       <div class="alert alert-success">{{i}}</div>
+                    {% endfor %}
+                {% endif %}
+                
                 <div class="p-4">
                     {{form.as_p}}
                     <hr>

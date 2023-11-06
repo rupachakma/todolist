@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login as loginUser,logout
 from base.forms import LoginForm, SignupForm, TasklistForm
 from django.contrib.auth.decorators import login_required
-from base.models import Tasklist
+from base.models import Profileimg, Tasklist
 
 # Create your views here.
 def signuppage(request):
@@ -12,7 +12,8 @@ def signuppage(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("loginpage")
+            messages.success(request,"Your account has been created! now you are able to log in.")
+            return redirect("loginpage")
         else:
             return redirect("signuppage")
     else:
@@ -45,10 +46,12 @@ def homepage(request):
         user = request.user
         form = TasklistForm()
         task = Tasklist.objects.filter(user=user)
+        profilepic = Profileimg.objects.get(user=request.user).profilepic.url
 
         context = {
             'form':form,
             'task':task,
+            'profilepic':profilepic
         }
     
         return render(request,"home.html",context)
@@ -77,3 +80,23 @@ def change_status(request,id,status):
     form.status = status
     form.save()
     return redirect("homepage")
+
+def myprofile(request):
+    user = request.user
+    
+    context = {
+        "user":user,
+        
+    }
+    return render(request,"profile.html",context)
+
+# def updateprofile(request):
+#     if request.method == "POST":
+#         username = request.POST.get("username")
+#         firstname = request.POST.get("first_name")
+#         lastname = request.POST.get("last_name")
+#         password = request.POST.get("password")
+#         email = request.POST.get("email")
+#         profilepic = request.FILES.get("profilepic")
+
+#         myuser = user

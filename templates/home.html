@@ -5,8 +5,11 @@
   <div class="container pt-5">
     <div class="row p-0 mx-auto">
       <div class="col-5 shadow p-0">
-        <div class="alert alert-info text-center"><h3>Add New Todo</h3>
-          Hello {{request.user.username}}🙋‍♀️
+        <div class="alert alert-info d-flex"><h3>Add New Todo</h3>
+         <a href="{{profilepic}}" target="_blank"  class=" ms-auto">
+          <img src="{{profilepic}}" alt="Avatar" class="rounded-circle" width="50px" height="50px">
+         </a>
+          <a href="{% url 'myprofile' %}" title="Update profile" style="text-decoration: none;">Hello {{request.user.username}}🙋‍♀️</a>
         </div>
 
           <div class="p-4">
