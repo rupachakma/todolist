@@ -6,7 +6,7 @@ class Tasklist(models.Model):
 
     status_choices = [
     ("C", "COMPLETEd"),
-    ("F", "PENDING"),   
+    ("P", "PENDING"),   
     ]
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     title = models.CharField(max_length=100)
