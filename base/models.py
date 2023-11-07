@@ -12,6 +12,7 @@ class Tasklist(models.Model):
     title = models.CharField(max_length=100)
     status = models.CharField(max_length=2,choices=status_choices)
     createat = models.DateTimeField(auto_now_add=True)
+    schedule = models.TimeField()
 
 def __str__(self):
     return self.title

@@ -38,6 +38,7 @@
                     <th class="text-center">Title</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Create at</th>
+                    <th class="text-center">Schedule</th>
                     <th class="text-center">Actions</th>
                   </tr>
                 </thead>
@@ -54,6 +55,7 @@
                         {% endif %}
                     </td>
                     <td class="text-center">{{i.createat}}</td>
+                    <td class="text-center">{{i.schedule}}</td>
                     <td class="text-center">
                       <div class="actions">
                          <a href="{% url 'deletetask' i.id %}" title="Delete" style="text-decoration: none;">🗑️</a>

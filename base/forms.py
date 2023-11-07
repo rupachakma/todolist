@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 
 class SignupForm(UserCreationForm):
+    username=forms.CharField(label="Username",widget=forms.TextInput(attrs={'class':'form-control'}))
     password1=forms.CharField(label="Password",widget=forms.PasswordInput(attrs={'class':'form-control'}))
     password2=forms.CharField(label="Confirm Password",widget=forms.PasswordInput(attrs={'class':'form-control'}))
   
@@ -14,7 +15,6 @@ class SignupForm(UserCreationForm):
         fields =['username','email']
         labels ={'email':'Email'}
         widgets={
-            'username':forms.TextInput(attrs={'class':'form-control'}),
             'email':forms.TextInput(attrs={'class':'form-control'}),
         }
 
